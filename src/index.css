@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* Custom Theme */
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2d5a8e;
+  --color-primary-dark: #132843;
+  --color-accent: #0d9488;
+  --color-accent-light: #14b8a6;
+  --color-accent-dark: #0a756b;
+  --color-verified: #059669;
+  --color-verified-light: #d1fae5;
+  --color-pending: #f59e0b;
+  --color-pending-light: #fef3c7;
+  --color-failed: #ef4444;
+  --color-failed-light: #fee2e2;
+  --color-surface: #f8fafc;
+  --color-card: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+::selection {
+  color: #0f292b;
+  background: #99f6e4;
+}
+
+.hero-surface {
+  background-image:
+    radial-gradient(ellipse at 82% 28%, rgba(45, 122, 114, 0.34), transparent 35%),
+    linear-gradient(118deg, #102e32 4%, #12383b 52%, #174849 100%);
+}
+
+.hero-glow::before,
+.hero-glow::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9999px;
+}
+
+.hero-glow::before {
+  top: -18rem;
+  right: -9rem;
+  width: 43rem;
+  height: 43rem;
+}
+
+.hero-glow::after {
+  top: -13rem;
+  right: -4rem;
+  width: 33rem;
+  height: 33rem;
+}
+
+.hero-building::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 6rem;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(7, 27, 30, 0.45));
+  content: "";
+}
+
+/* Leaflet Fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Trust Score Ring */
+.trust-ring {
+  transform: rotate(-90deg);
+}
+
+.trust-ring-bg {
+  stroke: #e2e8f0;
+}
+
+.trust-ring-fill {
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+/* Property Card Hover */
+.property-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Map Marker */
+.custom-marker {
+  background: none;
+  border: none;
+}
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #1e3a5f;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-pin.active {
+  background: #0d9488;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+}
+
+.marker-pin span {
+  transform: rotate(45deg);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}

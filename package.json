@@ -1,0 +1,45 @@
+{
+  "name": "niwas",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:server\" \"vite\"",
+    "dev:web": "vite",
+    "server": "node --watch server/index.js",
+    "dev:all": "npm run dev",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "seed": "node server/seed.js",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "concurrently": "^10.0.7",
+    "date-fns": "^4.4.0",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.4",
+    "firebase": "11.10.0",
+    "firebase-admin": "12.7.0",
+    "helmet": "^8.3.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.34.0",
+    "mongoose": "^9.12.2",
+    "multer": "^2.5.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-hot-toast": "^2.6.0",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.18.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "vite": "^8.2.2"
+  }
+}
